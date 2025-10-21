@@ -1,0 +1,138 @@
+---
+# KardoTemplates Registry
+# Registro oficial de plantillas para KardoCore
+
+version: "1.0.0"
+last_updated: "2025-10-21"
+repository: "https://github.com/webcien/KardoTemplates"
+
+themes:
+  # Salud y Bienestar
+  - slug: "wellness-clinic"
+    name: "Wellness Clinic"
+    type: "frontend"
+    category: "salud-bienestar"
+    description: "Plantilla moderna y profesional para clínicas de salud, centros de bienestar y consultorios médicos"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["salud", "clinica", "medico", "bienestar", "profesional"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/wellness-clinic-1.0.0.zip"
+    
+  - slug: "yoga-studio"
+    name: "Yoga Studio"
+    type: "frontend"
+    category: "salud-bienestar"
+    description: "Plantilla zen y minimalista para estudios de yoga, meditación y bienestar holístico"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["yoga", "meditación", "bienestar", "zen", "mindfulness"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/yoga-studio-1.0.0.zip"
+    
+  - slug: "mental-health-center"
+    name: "Mental Health Center"
+    type: "frontend"
+    category: "salud-bienestar"
+    description: "Plantilla cálida y acogedora para centros de salud mental, psicólogos y terapeutas"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["psicología", "terapia", "salud mental", "bienestar emocional"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/mental-health-center-1.0.0.zip"
+
+  # Educación y Cursos
+  - slug: "online-academy"
+    name: "Online Academy"
+    type: "frontend"
+    category: "educacion-cursos"
+    description: "Plantilla moderna para plataformas de educación online, cursos y academias virtuales"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["educación", "cursos online", "e-learning", "academia", "formación"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/online-academy-1.0.0.zip"
+    
+  - slug: "language-school"
+    name: "Language School"
+    type: "frontend"
+    category: "educacion-cursos"
+    description: "Plantilla dinámica para escuelas de idiomas y profesores de lenguas extranjeras"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["idiomas", "escuela", "inglés", "español", "aprendizaje"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/language-school-1.0.0.zip"
+    
+  - slug: "kids-education"
+    name: "Kids Education"
+    type: "frontend"
+    category: "educacion-cursos"
+    description: "Plantilla colorida y divertida para guarderías, preescolares y educación infantil"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["niños", "educación infantil", "guardería", "preescolar", "kids"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/kids-education-1.0.0.zip"
+
+  # Negocios
+  - slug: "corporate-business"
+    name: "Corporate Business"
+    type: "frontend"
+    category: "negocios"
+    description: "Plantilla profesional y elegante para empresas corporativas y negocios establecidos"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["corporativo", "empresa", "negocios", "profesional", "b2b"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/corporate-business-1.0.0.zip"
+    
+  - slug: "startup-agency"
+    name: "Startup Agency"
+    type: "frontend"
+    category: "negocios"
+    description: "Plantilla moderna y audaz para startups, agencias digitales y empresas innovadoras"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["startup", "agencia", "innovación", "tecnología", "digital"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/startup-agency-1.0.0.zip"
+
+  # Backend Admin Themes
+  - slug: "admin-modern"
+    name: "Modern Admin"
+    type: "backend"
+    category: "admin-themes"
+    description: "Panel de administración moderno y minimalista con diseño limpio"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["admin", "moderno", "minimalista", "panel", "backend"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/admin-modern-1.0.0.zip"
+    
+  - slug: "admin-dark"
+    name: "Dark Admin"
+    type: "backend"
+    category: "admin-themes"
+    description: "Panel de administración con modo oscuro elegante y profesional"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["admin", "dark mode", "oscuro", "panel", "backend"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/admin-dark-1.0.0.zip"
+
+  # Dashboard Themes
+  - slug: "dashboard-analytics"
+    name: "Analytics Dashboard"
+    type: "backend"
+    category: "dashboard-themes"
+    description: "Dashboard enfocado en análisis de datos y métricas"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["dashboard", "analytics", "datos", "métricas", "análisis"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/dashboard-analytics-1.0.0.zip"
+    
+  - slug: "dashboard-ecommerce"
+    name: "E-commerce Dashboard"
+    type: "backend"
+    category: "dashboard-themes"
+    description: "Dashboard especializado para tiendas online y ventas"
+    version: "1.0.0"
+    author: "KardoCore Team"
+    tags: ["dashboard", "ecommerce", "ventas", "tienda", "comercio"]
+    download_url: "https://github.com/webcien/KardoTemplates/raw/main/releases/dashboard-ecommerce-1.0.0.zip"
+
+# Nota: Este es un registry parcial con ejemplos
+# El registry completo incluirá las 60 plantillas
+# Para producción, se generará automáticamente desde los metadatos de cada plantilla
+
