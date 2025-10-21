@@ -2,40 +2,124 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%% block title %%}{{ site.name }}{%% endblock %%}</title>
-    <meta name="description" content="{%% block description %%}{{ site.description }}{%% endblock %%}">
-    <link rel="stylesheet" href="{{ static('css/main.css') }}">
-    {%% block extra_css %%}{%% endblock %%}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="{{ theme_color }}">
+    <title>{% block title %}{{ site_name }}{% endblock %}</title>
+    
+    <!-- KardoCSS - Framework CSS Principal -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webcien/KardoCSS@main/dist/kardocss.min.css">
+    
+    <!-- Estilos específicos del tema (mínimos) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    
+    {% block extra_css %}{% endblock %}
 </head>
-<body>
-    <header class="site-header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="{{ url('home') }}" class="logo">{{ site.name }}</a>
-                <ul class="nav-menu">
-                    <li><a href="{{ url('home') }}">Inicio</a></li>
-                    <li><a href="{{ url('about') }}">Nosotros</a></li>
-                    <li><a href="{{ url('services') }}">Servicios</a></li>
-                    <li><a href="{{ url('blog') }}">Blog</a></li>
-                    <li><a href="{{ url('contact') }}">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+<body class="smooth-scroll no-overscroll">
+    <!-- Header -->
+    <header class="sticky-header-mobile bg-white shadow-sm safe-top">
+        {% block header %}
+        <nav class="container-responsive py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-primary">
+                    {{ site_name }}
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="hamburger show-mobile touch-target touch-feedback" id="menuToggle" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Desktop Menu -->
+                <div class="hide-mobile flex gap-6">
+                    {% block nav_items %}
+                    <a href="/" class="text-gray-700 hover:text-primary transition-colors">Inicio</a>
+                    <a href="/about" class="text-gray-700 hover:text-primary transition-colors">Nosotros</a>
+                    <a href="/services" class="text-gray-700 hover:text-primary transition-colors">Servicios</a>
+                    <a href="/contact" class="text-gray-700 hover:text-primary transition-colors">Contacto</a>
+                    {% endblock %}
+                </div>
+            </div>
+        </nav>
+        {% endblock %}
     </header>
     
-    <main class="main-content">
-        {%% block content %%}{%% endblock %%}
+    <!-- Mobile Drawer -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="mobileDrawer">
+        <div class="p-6 safe-top">
+            <div class="text-xl font-bold mb-6">Menú</div>
+            <nav class="flex flex-col gap-4">
+                {% block mobile_nav_items %}
+                <a href="/" class="text-lg text-gray-700 hover:text-primary transition-colors py-2">Inicio</a>
+                <a href="/about" class="text-lg text-gray-700 hover:text-primary transition-colors py-2">Nosotros</a>
+                <a href="/services" class="text-lg text-gray-700 hover:text-primary transition-colors py-2">Servicios</a>
+                <a href="/contact" class="text-lg text-gray-700 hover:text-primary transition-colors py-2">Contacto</a>
+                {% endblock %}
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
     </main>
     
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; {{ current_year }} {{ site.name }}. Todos los derechos reservados.</p>
-            <p>Powered by <a href="https://github.com/webcien/KardoCore">KardoCore</a></p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 safe-bottom">
+        {% block footer %}
+        <div class="container-responsive">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">{{ site_name }}</h3>
+                    <p class="text-gray-400">{{ site_description }}</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="/about" class="text-gray-400 hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="/services" class="text-gray-400 hover:text-white transition-colors">Servicios</a></li>
+                        <li><a href="/contact" class="text-gray-400 hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contacto</h4>
+                    <p class="text-gray-400">{{ contact_email }}</p>
+                    <p class="text-gray-400">{{ contact_phone }}</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 {{ site_name }}. Todos los derechos reservados.</p>
+                <p class="text-sm mt-2">Powered by <a href="https://github.com/webcien/KardoCore" class="text-primary hover:underline">KardoCore</a></p>
+            </div>
         </div>
+        {% endblock %}
     </footer>
     
-    <script src="{{ static('js/main.js') }}"></script>
-    {%% block extra_js %%}{%% endblock %%}
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        
+        if (menuToggle && mobileDrawer && drawerOverlay) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                mobileDrawer.classList.toggle('open');
+                drawerOverlay.classList.toggle('active');
+            });
+            
+            drawerOverlay.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileDrawer.classList.remove('open');
+                drawerOverlay.classList.remove('active');
+            });
+        }
+    </script>
+    
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

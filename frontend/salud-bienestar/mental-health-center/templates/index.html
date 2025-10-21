@@ -1,34 +1,64 @@
-{%% extends "base.html" %%}
+{% extends "base.html" %}
 
-{%% block title %%}{{ site.name }} - Plantilla cálida y acogedora para centros de salud mental, psicólogos y terapeutas{%% endblock %%}
-
-{%% block content %%}
-<section class="hero-section">
-    <div class="container">
-        <h1>Bienvenido a {{ site.name }}</h1>
-        <p>Plantilla cálida y acogedora para centros de salud mental, psicólogos y terapeutas</p>
-        <a href="{{ url('contact') }}" class="btn btn-primary">Contáctanos</a>
-    </div>
-</section>
-
-<section class="features-section">
-    <div class="container">
-        <h2>Nuestros Servicios</h2>
-        <div class="features-grid">
-            {%% for service in services[:3] %%}
-            <div class="feature-card">
-                <h3>{{ service.name }}</h3>
-                <p>{{ service.description }}</p>
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-gradient text-white py-16 md:py-24">
+    <div class="container-responsive">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6 custom-fade-in">
+                {{ hero_title }}
+            </h1>
+            <p class="text-lg md:text-xl mb-8 opacity-90">
+                {{ hero_subtitle }}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" class="btn btn-lg bg-white text-primary hover:shadow-lg transition-all touch-target">
+                    Comenzar Ahora
+                </a>
+                <a href="/about" class="btn btn-lg btn-outline border-white text-white hover:bg-white hover:text-primary transition-all touch-target">
+                    Saber Más
+                </a>
             </div>
-            {%% endfor %%}
         </div>
     </div>
 </section>
 
-<section class="cta-section">
-    <div class="container">
-        <h2>¿Listo para comenzar?</h2>
-        <a href="{{ url('contact') }}" class="btn btn-primary">Contactar Ahora</a>
+<!-- Features Section -->
+<section class="py-16 md:py-24 bg-gray-50">
+    <div class="container-responsive">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Ofrecemos soluciones profesionales adaptadas a tus necesidades
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {% for feature in features %}
+            <div class="card hover:shadow-xl transition-shadow touch-feedback">
+                <div class="card-body">
+                    <div class="text-4xl mb-4">{{ feature.icon }}</div>
+                    <h3 class="text-xl font-semibold mb-3">{{ feature.title }}</h3>
+                    <p class="text-gray-600">{{ feature.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </section>
-{%% endblock %%}
+
+<!-- CTA Section -->
+<section class="py-16 md:py-24 bg-primary text-white">
+    <div class="container-responsive text-center">
+        <h2 class="text-2xl md:text-4xl font-bold mb-6">
+            ¿Listo para comenzar?
+        </h2>
+        <p class="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+            Contáctanos hoy y descubre cómo podemos ayudarte
+        </p>
+        <a href="/contact" class="btn btn-lg bg-white text-primary hover:shadow-lg transition-all touch-target">
+            Contactar Ahora
+        </a>
+    </div>
+</section>
+{% endblock %}

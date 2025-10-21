@@ -2,123 +2,124 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{{ site.name }}{% endblock %}</title>
-    <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="{{ theme_color }}">
+    <title>{% block title %}{{ site_name }}{% endblock %}</title>
     
-    <!-- SEO Meta Tags -->
-    <meta name="keywords" content="{% block keywords %}salud, bienestar, clínica, médico{% endblock %}">
-    <meta name="author" content="{{ site.name }}">
+    <!-- KardoCSS - Framework CSS Principal -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webcien/KardoCSS@main/dist/kardocss.min.css">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="{% block og_title %}{{ site.name }}{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}{{ site.description }}{% endblock %}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request.url }}">
+    <!-- Estilos específicos del tema (mínimos) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ static('images/favicon.png') }}">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ static('css/main.css') }}">
     {% block extra_css %}{% endblock %}
 </head>
-<body>
+<body class="smooth-scroll no-overscroll">
     <!-- Header -->
-    <header class="header-main">
-        <div class="container">
-            <nav class="navbar">
-                <div class="navbar-brand">
-                    <a href="{{ url('home') }}" class="logo">
-                        <img src="{{ static('images/logo.svg') }}" alt="{{ site.name }}">
-                    </a>
+    <header class="sticky-header-mobile bg-white shadow-sm safe-top">
+        {% block header %}
+        <nav class="container-responsive py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-primary">
+                    {{ site_name }}
                 </div>
                 
-                <button class="navbar-toggle" aria-label="Toggle navigation">
+                <!-- Mobile Menu Toggle -->
+                <button class="hamburger show-mobile touch-target touch-feedback" id="menuToggle" aria-label="Menú">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
                 
-                <div class="navbar-menu">
-                    <ul class="navbar-nav">
-                        <li><a href="{{ url('home') }}" class="nav-link">Inicio</a></li>
-                        <li><a href="{{ url('services') }}" class="nav-link">Servicios</a></li>
-                        <li><a href="{{ url('team') }}" class="nav-link">Equipo Médico</a></li>
-                        <li><a href="{{ url('blog') }}" class="nav-link">Blog</a></li>
-                        <li><a href="{{ url('contact') }}" class="nav-link">Contacto</a></li>
-                    </ul>
-                    <a href="{{ url('appointment') }}" class="btn btn-primary">Agendar Cita</a>
+                <!-- Desktop Menu -->
+                <div class="hide-mobile flex gap-6">
+                    {% block nav_items %}
+                    <a href="/" class="text-gray-700 hover:text-primary transition-colors">Inicio</a>
+                    <a href="/about" class="text-gray-700 hover:text-primary transition-colors">Nosotros</a>
+                    <a href="/services" class="text-gray-700 hover:text-primary transition-colors">Servicios</a>
+                    <a href="/contact" class="text-gray-700 hover:text-primary transition-colors">Contacto</a>
+                    {% endblock %}
                 </div>
+            </div>
+        </nav>
+        {% endblock %}
+    </header>
+    
+    <!-- Mobile Drawer -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="mobileDrawer">
+        <div class="p-6 safe-top">
+            <div class="text-xl font-bold mb-6">Menú</div>
+            <nav class="flex flex-col gap-4">
+                {% block mobile_nav_items %}
+                <a href="/" class="text-lg text-gray-700 hover:text-primary transition-colors py-2">Inicio</a>
+                <a href="/about" class="text-lg text-gray-700 hover:text-primary transition-colors py-2">Nosotros</a>
+                <a href="/services" class="text-lg text-gray-700 hover:text-primary transition-colors py-2">Servicios</a>
+                <a href="/contact" class="text-lg text-gray-700 hover:text-primary transition-colors py-2">Contacto</a>
+                {% endblock %}
             </nav>
         </div>
-    </header>
-
+    </div>
+    
     <!-- Main Content -->
-    <main class="main-content">
+    <main>
         {% block content %}{% endblock %}
     </main>
-
+    
     <!-- Footer -->
-    <footer class="footer-main">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>{{ site.name }}</h3>
-                    <p>{{ site.description }}</p>
-                    <div class="social-links">
-                        {% if site.social.facebook %}
-                        <a href="{{ site.social.facebook }}" aria-label="Facebook"><i class="icon-facebook"></i></a>
-                        {% endif %}
-                        {% if site.social.instagram %}
-                        <a href="{{ site.social.instagram }}" aria-label="Instagram"><i class="icon-instagram"></i></a>
-                        {% endif %}
-                        {% if site.social.twitter %}
-                        <a href="{{ site.social.twitter }}" aria-label="Twitter"><i class="icon-twitter"></i></a>
-                        {% endif %}
-                    </div>
+    <footer class="bg-gray-900 text-white py-12 safe-bottom">
+        {% block footer %}
+        <div class="container-responsive">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">{{ site_name }}</h3>
+                    <p class="text-gray-400">{{ site_description }}</p>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Servicios</h4>
-                    <ul>
-                        <li><a href="{{ url('services', 'medicina-general') }}">Medicina General</a></li>
-                        <li><a href="{{ url('services', 'pediatria') }}">Pediatría</a></li>
-                        <li><a href="{{ url('services', 'nutricion') }}">Nutrición</a></li>
-                        <li><a href="{{ url('services', 'fisioterapia') }}">Fisioterapia</a></li>
+                <div>
+                    <h4 class="font-semibold mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="/about" class="text-gray-400 hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="/services" class="text-gray-400 hover:text-white transition-colors">Servicios</a></li>
+                        <li><a href="/contact" class="text-gray-400 hover:text-white transition-colors">Contacto</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Información</h4>
-                    <ul>
-                        <li><a href="{{ url('about') }}">Nosotros</a></li>
-                        <li><a href="{{ url('team') }}">Equipo Médico</a></li>
-                        <li><a href="{{ url('faq') }}">Preguntas Frecuentes</a></li>
-                        <li><a href="{{ url('privacy') }}">Política de Privacidad</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Contacto</h4>
-                    <ul class="contact-info">
-                        <li><i class="icon-phone"></i> {{ site.phone }}</li>
-                        <li><i class="icon-email"></i> {{ site.email }}</li>
-                        <li><i class="icon-location"></i> {{ site.address }}</li>
-                    </ul>
+                <div>
+                    <h4 class="font-semibold mb-4">Contacto</h4>
+                    <p class="text-gray-400">{{ contact_email }}</p>
+                    <p class="text-gray-400">{{ contact_phone }}</p>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; {{ current_year }} {{ site.name }}. Todos los derechos reservados.</p>
-                <p>Powered by <a href="https://github.com/webcien/KardoCore" target="_blank">KardoCore</a></p>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 {{ site_name }}. Todos los derechos reservados.</p>
+                <p class="text-sm mt-2">Powered by <a href="https://github.com/webcien/KardoCore" class="text-primary hover:underline">KardoCore</a></p>
             </div>
         </div>
+        {% endblock %}
     </footer>
-
+    
     <!-- Scripts -->
-    <script src="{{ static('js/main.js') }}"></script>
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        
+        if (menuToggle && mobileDrawer && drawerOverlay) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                mobileDrawer.classList.toggle('open');
+                drawerOverlay.classList.toggle('active');
+            });
+            
+            drawerOverlay.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileDrawer.classList.remove('open');
+                drawerOverlay.classList.remove('active');
+            });
+        }
+    </script>
+    
     {% block extra_js %}{% endblock %}
 </body>
 </html>
-
