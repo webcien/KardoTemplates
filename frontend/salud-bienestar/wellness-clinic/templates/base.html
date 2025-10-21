@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ site.name }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="{% block keywords %}salud, bienestar, clínica, médico{% endblock %}">
+    <meta name="author" content="{{ site.name }}">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{% block og_title %}{{ site.name }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ site.description }}{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ static('images/favicon.png') }}">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ static('css/main.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-main">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <a href="{{ url('home') }}" class="logo">
+                        <img src="{{ static('images/logo.svg') }}" alt="{{ site.name }}">
+                    </a>
+                </div>
+                
+                <button class="navbar-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="navbar-menu">
+                    <ul class="navbar-nav">
+                        <li><a href="{{ url('home') }}" class="nav-link">Inicio</a></li>
+                        <li><a href="{{ url('services') }}" class="nav-link">Servicios</a></li>
+                        <li><a href="{{ url('team') }}" class="nav-link">Equipo Médico</a></li>
+                        <li><a href="{{ url('blog') }}" class="nav-link">Blog</a></li>
+                        <li><a href="{{ url('contact') }}" class="nav-link">Contacto</a></li>
+                    </ul>
+                    <a href="{{ url('appointment') }}" class="btn btn-primary">Agendar Cita</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>{{ site.name }}</h3>
+                    <p>{{ site.description }}</p>
+                    <div class="social-links">
+                        {% if site.social.facebook %}
+                        <a href="{{ site.social.facebook }}" aria-label="Facebook"><i class="icon-facebook"></i></a>
+                        {% endif %}
+                        {% if site.social.instagram %}
+                        <a href="{{ site.social.instagram }}" aria-label="Instagram"><i class="icon-instagram"></i></a>
+                        {% endif %}
+                        {% if site.social.twitter %}
+                        <a href="{{ site.social.twitter }}" aria-label="Twitter"><i class="icon-twitter"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="{{ url('services', 'medicina-general') }}">Medicina General</a></li>
+                        <li><a href="{{ url('services', 'pediatria') }}">Pediatría</a></li>
+                        <li><a href="{{ url('services', 'nutricion') }}">Nutrición</a></li>
+                        <li><a href="{{ url('services', 'fisioterapia') }}">Fisioterapia</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="{{ url('about') }}">Nosotros</a></li>
+                        <li><a href="{{ url('team') }}">Equipo Médico</a></li>
+                        <li><a href="{{ url('faq') }}">Preguntas Frecuentes</a></li>
+                        <li><a href="{{ url('privacy') }}">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul class="contact-info">
+                        <li><i class="icon-phone"></i> {{ site.phone }}</li>
+                        <li><i class="icon-email"></i> {{ site.email }}</li>
+                        <li><i class="icon-location"></i> {{ site.address }}</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {{ current_year }} {{ site.name }}. Todos los derechos reservados.</p>
+                <p>Powered by <a href="https://github.com/webcien/KardoCore" target="_blank">KardoCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ static('js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+

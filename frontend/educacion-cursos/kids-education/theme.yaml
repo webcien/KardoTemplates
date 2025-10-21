@@ -1,0 +1,42 @@
+name: Kids Education
+slug: kids-education
+version: 1.0.0
+description: Plantilla colorida y divertida para guarderías, preescolares y educación
+  infantil
+author: KardoCore Team
+author_url: https://github.com/webcien/KardoTemplates
+license: MIT
+category: educacion-cursos
+type: frontend
+tags:
+- niños
+- educación infantil
+- guardería
+- preescolar
+- kids
+requirements:
+  kardocore: '>=0.1.0'
+  kardocss: '>=0.1.0'
+  python: '>=3.11'
+features:
+- Diseño responsive optimizado
+- SEO optimizado
+- Accesibilidad WCAG 2.1
+- Rendimiento optimizado
+- Navegación intuitiva
+screenshots:
+- screenshot-home.png
+- screenshot-about.png
+- screenshot-contact.png
+colors:
+  primary: '#F59E0B'
+  secondary: '#FBBF24'
+  accent: '#EC4899'
+  background: '#FFFFFF'
+  text: '#1F2937'
+theme_config:
+  layout: default
+  header_style: fixed
+  footer_style: default
+  sidebar: false
+  dark_mode: true

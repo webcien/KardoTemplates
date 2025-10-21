@@ -1,0 +1,42 @@
+name: Personal Brand Coach
+slug: personal-brand-coach
+version: 1.0.0
+description: Plantilla inspiradora para coaches y mentores
+author: KardoCore Team
+author_url: https://github.com/webcien/KardoTemplates
+license: MIT
+category: marca-personal
+type: frontend
+tags:
+- coach
+- mentor
+- marca personal
+- personal brand
+- coaching
+requirements:
+  kardocore: '>=0.1.0'
+  kardocss: '>=0.1.0'
+  python: '>=3.11'
+features:
+- Diseño responsive optimizado
+- SEO optimizado
+- Accesibilidad WCAG 2.1
+- Rendimiento optimizado
+- Compatible con KardoCSS
+screenshots:
+- screenshot-home.png
+- screenshot-about.png
+- screenshot-contact.png
+colors:
+  primary: '#7C3AED'
+  secondary: '#8B5CF6'
+  accent: '#F59E0B'
+  background: '#FFFFFF'
+  text: '#1F2937'
+theme_config:
+  layout: default
+  header_style: fixed
+  footer_style: default
+  sidebar: false
+  dark_mode: true
+  kardocss_enabled: true

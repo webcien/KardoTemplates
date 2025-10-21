@@ -1,0 +1,31 @@
+/* Lead Generation Landing - Custom Styles */
+/* Este archivo complementa KardoCSS con estilos específicos del tema */
+
+:root {
+    --color-primary: #10B981;
+    --color-secondary: #34D399;
+    --color-accent: #3B82F6;
+}
+
+/* Gradientes personalizados */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.bg-accent {
+    background-color: var(--color-accent);
+}
+
+/* Estilos adicionales específicos del tema */
+.btn-white {
+    background-color: white;
+    color: var(--color-primary);
+}
+
+.btn-white:hover {
+    background-color: #f3f4f6;
+}

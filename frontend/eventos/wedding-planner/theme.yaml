@@ -1,0 +1,41 @@
+name: Wedding Planner
+slug: wedding-planner
+version: 1.0.0
+description: Plantilla romántica y elegante para organizadores de bodas
+author: KardoCore Team
+author_url: https://github.com/webcien/KardoTemplates
+license: MIT
+category: eventos
+type: frontend
+tags:
+- bodas
+- wedding
+- eventos
+- planner
+- celebraciones
+requirements:
+  kardocore: '>=0.1.0'
+  kardocss: '>=0.1.0'
+  python: '>=3.11'
+features:
+- Diseño responsive optimizado
+- SEO optimizado
+- Accesibilidad WCAG 2.1
+- Rendimiento optimizado
+- Navegación intuitiva
+screenshots:
+- screenshot-home.png
+- screenshot-about.png
+- screenshot-contact.png
+colors:
+  primary: '#DB2777'
+  secondary: '#EC4899'
+  accent: '#F472B6'
+  background: '#FFFFFF'
+  text: '#1F2937'
+theme_config:
+  layout: default
+  header_style: fixed
+  footer_style: default
+  sidebar: false
+  dark_mode: true

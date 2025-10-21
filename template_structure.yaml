@@ -1,0 +1,52 @@
+# Estructura estándar de metadatos para plantillas KardoTemplates
+# Este archivo debe llamarse theme.yaml en cada plantilla
+
+name: "Nombre de la Plantilla"
+slug: "nombre-plantilla"
+version: "1.0.0"
+description: "Descripción breve de la plantilla"
+author: "KardoCore Team"
+author_url: "https://github.com/webcien/KardoTemplates"
+license: "MIT"
+category: "categoria-plantilla"
+type: "frontend" # o "backend"
+tags:
+  - "tag1"
+  - "tag2"
+  - "tag3"
+
+# Requisitos
+requirements:
+  kardocore: ">=0.1.0"
+  kardocss: ">=0.1.0"
+  python: ">=3.11"
+
+# Características
+features:
+  - "Responsive design"
+  - "SEO optimizado"
+  - "Accesibilidad WCAG 2.1"
+  - "Rendimiento optimizado"
+
+# Capturas de pantalla
+screenshots:
+  - "screenshot-desktop.png"
+  - "screenshot-mobile.png"
+  - "screenshot-tablet.png"
+
+# Colores principales
+colors:
+  primary: "#3B82F6"
+  secondary: "#8B5CF6"
+  accent: "#10B981"
+  background: "#FFFFFF"
+  text: "#1F2937"
+
+# Configuración de tema
+theme_config:
+  layout: "default"
+  header_style: "fixed"
+  footer_style: "default"
+  sidebar: true
+  dark_mode: true
+

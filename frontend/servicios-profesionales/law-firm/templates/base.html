@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%% block title %%}{{ site.name }}{%% endblock %%}</title>
+    <meta name="description" content="{%% block description %%}{{ site.description }}{%% endblock %%}">
+    <link rel="stylesheet" href="{{ static('css/main.css') }}">
+    {%% block extra_css %%}{%% endblock %%}
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="{{ url('home') }}" class="logo">{{ site.name }}</a>
+                <ul class="nav-menu">
+                    <li><a href="{{ url('home') }}">Inicio</a></li>
+                    <li><a href="{{ url('about') }}">Nosotros</a></li>
+                    <li><a href="{{ url('services') }}">Servicios</a></li>
+                    <li><a href="{{ url('blog') }}">Blog</a></li>
+                    <li><a href="{{ url('contact') }}">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        {%% block content %%}{%% endblock %%}
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; {{ current_year }} {{ site.name }}. Todos los derechos reservados.</p>
+            <p>Powered by <a href="https://github.com/webcien/KardoCore">KardoCore</a></p>
+        </div>
+    </footer>
+    
+    <script src="{{ static('js/main.js') }}"></script>
+    {%% block extra_js %%}{%% endblock %%}
+</body>
+</html>

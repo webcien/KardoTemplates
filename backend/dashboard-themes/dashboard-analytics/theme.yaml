@@ -1,0 +1,43 @@
+name: Analytics Dashboard
+slug: dashboard-analytics
+version: 1.0.0
+description: Dashboard enfocado en análisis de datos y métricas
+author: KardoCore Team
+author_url: https://github.com/webcien/KardoTemplates
+license: MIT
+category: dashboard-themes
+type: backend
+tags:
+- dashboard
+- analytics
+- datos
+- métricas
+- análisis
+requirements:
+  kardocore: '>=0.1.0'
+  kardocss: '>=0.1.0'
+  python: '>=3.11'
+features:
+- Diseño responsive para admin
+- Sidebar colapsable
+- Gráficos y estadísticas
+- Tablas de datos avanzadas
+- Compatible con KardoCSS
+- Modo oscuro disponible
+screenshots:
+- screenshot-dashboard.png
+- screenshot-tables.png
+- screenshot-forms.png
+colors:
+  primary: '#7C3AED'
+  secondary: '#8B5CF6'
+  accent: '#F59E0B'
+  background: '#F9FAFB'
+  text: '#1F2937'
+theme_config:
+  layout: admin
+  sidebar_style: fixed
+  header_style: fixed
+  sidebar_collapsed: false
+  dark_mode: true
+  kardocss_enabled: true

@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site.name }} - Tu Salud es Nuestra Prioridad{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Tu Salud es Nuestra Prioridad</h1>
+            <p class="hero-subtitle">Atención médica profesional y personalizada para ti y tu familia</p>
+            <div class="hero-actions">
+                <a href="{{ url('appointment') }}" class="btn btn-primary btn-lg">Agendar Cita</a>
+                <a href="{{ url('services') }}" class="btn btn-outline btn-lg">Ver Servicios</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="{{ static('images/hero-doctor.jpg') }}" alt="Equipo médico profesional">
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="icon-calendar"></i>
+                </div>
+                <h3>Citas Online</h3>
+                <p>Agenda tu consulta de forma rápida y sencilla desde cualquier dispositivo</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="icon-team"></i>
+                </div>
+                <h3>Equipo Profesional</h3>
+                <p>Médicos especializados con años de experiencia y certificaciones</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="icon-clock"></i>
+                </div>
+                <h3>Horario Flexible</h3>
+                <p>Atención de lunes a sábado con horarios adaptados a tus necesidades</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="icon-shield"></i>
+                </div>
+                <h3>Instalaciones Seguras</h3>
+                <p>Protocolos de higiene y seguridad certificados para tu tranquilidad</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nuestros Servicios</h2>
+            <p>Atención médica integral para toda la familia</p>
+        </div>
+        
+        <div class="services-grid">
+            {% for service in services[:6] %}
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="{{ service.image }}" alt="{{ service.name }}">
+                </div>
+                <div class="service-content">
+                    <h3>{{ service.name }}</h3>
+                    <p>{{ service.description }}</p>
+                    <a href="{{ url('service', service.slug) }}" class="btn btn-link">Más información →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="section-footer">
+            <a href="{{ url('services') }}" class="btn btn-primary">Ver Todos los Servicios</a>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nuestro Equipo Médico</h2>
+            <p>Profesionales comprometidos con tu salud</p>
+        </div>
+        
+        <div class="team-grid">
+            {% for doctor in team[:4] %}
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="{{ doctor.photo }}" alt="Dr. {{ doctor.name }}">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. {{ doctor.name }}</h3>
+                    <p class="team-specialty">{{ doctor.specialty }}</p>
+                    <p class="team-description">{{ doctor.bio|truncate(100) }}</p>
+                    <a href="{{ url('doctor', doctor.slug) }}" class="btn btn-sm btn-outline">Ver Perfil</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="section-footer">
+            <a href="{{ url('team') }}" class="btn btn-primary">Conocer Todo el Equipo</a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Lo Que Dicen Nuestros Pacientes</h2>
+        </div>
+        
+        <div class="testimonials-grid">
+            {% for testimonial in testimonials[:3] %}
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    {% for i in range(5) %}
+                    <i class="icon-star"></i>
+                    {% endfor %}
+                </div>
+                <p class="testimonial-text">"{{ testimonial.text }}"</p>
+                <div class="testimonial-author">
+                    <img src="{{ testimonial.avatar }}" alt="{{ testimonial.name }}">
+                    <div>
+                        <strong>{{ testimonial.name }}</strong>
+                        <span>{{ testimonial.date|date('d/m/Y') }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>¿Listo para cuidar tu salud?</h2>
+            <p>Agenda tu cita hoy mismo y recibe atención médica de calidad</p>
+            <a href="{{ url('appointment') }}" class="btn btn-white btn-lg">Agendar Cita Ahora</a>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="blog-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Últimos Artículos de Salud</h2>
+            <p>Consejos y noticias para tu bienestar</p>
+        </div>
+        
+        <div class="blog-grid">
+            {% for post in recent_posts[:3] %}
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="{{ post.featured_image }}" alt="{{ post.title }}">
+                    <span class="blog-category">{{ post.category.name }}</span>
+                </div>
+                <div class="blog-content">
+                    <time class="blog-date">{{ post.published_at|date('d/m/Y') }}</time>
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.excerpt }}</p>
+                    <a href="{{ url('post', post.slug) }}" class="btn btn-link">Leer más →</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        
+        <div class="section-footer">
+            <a href="{{ url('blog') }}" class="btn btn-primary">Ver Todos los Artículos</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

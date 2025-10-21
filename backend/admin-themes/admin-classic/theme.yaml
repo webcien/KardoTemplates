@@ -1,0 +1,43 @@
+name: Classic Admin
+slug: admin-classic
+version: 1.0.0
+description: Panel de administración clásico y tradicional, fácil de usar
+author: KardoCore Team
+author_url: https://github.com/webcien/KardoTemplates
+license: MIT
+category: admin-themes
+type: backend
+tags:
+- admin
+- clásico
+- tradicional
+- panel
+- backend
+requirements:
+  kardocore: '>=0.1.0'
+  kardocss: '>=0.1.0'
+  python: '>=3.11'
+features:
+- Diseño responsive para admin
+- Sidebar colapsable
+- Gráficos y estadísticas
+- Tablas de datos avanzadas
+- Compatible con KardoCSS
+- Modo oscuro disponible
+screenshots:
+- screenshot-dashboard.png
+- screenshot-tables.png
+- screenshot-forms.png
+colors:
+  primary: '#1E40AF'
+  secondary: '#3B82F6'
+  accent: '#059669'
+  background: '#F9FAFB'
+  text: '#1F2937'
+theme_config:
+  layout: admin
+  sidebar_style: fixed
+  header_style: fixed
+  sidebar_collapsed: false
+  dark_mode: true
+  kardocss_enabled: true

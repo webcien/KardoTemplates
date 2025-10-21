@@ -1,0 +1,42 @@
+name: Law Firm
+slug: law-firm
+version: 1.0.0
+description: Plantilla profesional y confiable para bufetes de abogados y servicios
+  legales
+author: KardoCore Team
+author_url: https://github.com/webcien/KardoTemplates
+license: MIT
+category: servicios-profesionales
+type: frontend
+tags:
+- abogados
+- legal
+- derecho
+- bufete
+- jurídico
+requirements:
+  kardocore: '>=0.1.0'
+  kardocss: '>=0.1.0'
+  python: '>=3.11'
+features:
+- Diseño responsive optimizado
+- SEO optimizado
+- Accesibilidad WCAG 2.1
+- Rendimiento optimizado
+- Navegación intuitiva
+screenshots:
+- screenshot-home.png
+- screenshot-about.png
+- screenshot-contact.png
+colors:
+  primary: '#0F172A'
+  secondary: '#1E293B'
+  accent: '#B8860B'
+  background: '#FFFFFF'
+  text: '#1F2937'
+theme_config:
+  layout: default
+  header_style: fixed
+  footer_style: default
+  sidebar: false
+  dark_mode: true

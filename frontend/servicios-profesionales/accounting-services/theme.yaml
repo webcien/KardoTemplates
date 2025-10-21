@@ -1,0 +1,41 @@
+name: Accounting Services
+slug: accounting-services
+version: 1.0.0
+description: Plantilla clara y organizada para contadores, auditores y servicios financieros
+author: KardoCore Team
+author_url: https://github.com/webcien/KardoTemplates
+license: MIT
+category: servicios-profesionales
+type: frontend
+tags:
+- contabilidad
+- finanzas
+- auditoría
+- impuestos
+- contador
+requirements:
+  kardocore: '>=0.1.0'
+  kardocss: '>=0.1.0'
+  python: '>=3.11'
+features:
+- Diseño responsive optimizado
+- SEO optimizado
+- Accesibilidad WCAG 2.1
+- Rendimiento optimizado
+- Navegación intuitiva
+screenshots:
+- screenshot-home.png
+- screenshot-about.png
+- screenshot-contact.png
+colors:
+  primary: '#1E40AF'
+  secondary: '#3B82F6'
+  accent: '#059669'
+  background: '#FFFFFF'
+  text: '#1F2937'
+theme_config:
+  layout: default
+  header_style: fixed
+  footer_style: default
+  sidebar: false
+  dark_mode: true

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%% block title %%}{{ site.name }}{%% endblock %%}</title>
+    <meta name="description" content="{%% block description %%}{{ site.description }}{%% endblock %%}">
+    
+    <!-- KardoCSS -->
+    <link rel="stylesheet" href="{{ kardocss() }}">
+    <link rel="stylesheet" href="{{ static('css/custom.css') }}">
+    {%% block extra_css %%}{%% endblock %%}
+</head>
+<body class="bg-white text-gray-900">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center py-4">
+                <a href="{{ url('home') }}" class="text-2xl font-bold text-primary">{{ site.name }}</a>
+                <ul class="flex gap-6 list-none">
+                    <li><a href="{{ url('home') }}" class="text-gray-700 hover:text-primary font-medium">Inicio</a></li>
+                    <li><a href="{{ url('about') }}" class="text-gray-700 hover:text-primary font-medium">Nosotros</a></li>
+                    <li><a href="{{ url('services') }}" class="text-gray-700 hover:text-primary font-medium">Servicios</a></li>
+                    <li><a href="{{ url('blog') }}" class="text-gray-700 hover:text-primary font-medium">Blog</a></li>
+                    <li><a href="{{ url('contact') }}" class="text-gray-700 hover:text-primary font-medium">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        {%% block content %%}{%% endblock %%}
+    </main>
+    
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">&copy; {{ current_year }} {{ site.name }}. Todos los derechos reservados.</p>
+            <p class="text-gray-400">Powered by <a href="https://github.com/webcien/KardoCore" class="text-primary hover:underline">KardoCore</a></p>
+        </div>
+    </footer>
+    
+    <script src="{{ static('js/main.js') }}"></script>
+    {%% block extra_js %%}{%% endblock %%}
+</body>
+</html>
