@@ -1,0 +1,27 @@
+<footer class="bg-gray-900 text-white py-12 safe-bottom">
+    <div class="container-responsive">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">{site_name}</h3>
+                <p class="text-gray-400">{site_description}</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Enlaces</h4>
+                <ul class="space-y-2">
+                    #for link in footer_links
+                    <li><a href="{link.url}" class="text-gray-400 hover:text-white transition-colors">{link.label}</a></li>
+                    #end
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Contacto</h4>
+                <p class="text-gray-400">{contact_email}</p>
+                <p class="text-gray-400">{contact_phone}</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 {site_name}. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">Powered by <a href="https://github.com/webcien/KardoCore" class="text-primary hover:underline">KardoCore</a></p>
+        </div>
+    </div>
+</footer>

@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{# extends:base.html #}
 
-{% block title %}Dashboard - {{ site.name }}{% endblock %}
+{# block:title #}Dashboard - {site.name}{# endblock #}
 
-{% block content %}
+{# block:content #}
 <div class="dashboard">
     <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
     
@@ -12,7 +12,7 @@
             <div class="flex justify-between items-start">
                 <div>
                     <p class="text-gray-600 text-sm">Total Posts</p>
-                    <p class="text-3xl font-bold mt-2">{{ stats.total_posts }}</p>
+                    <p class="text-3xl font-bold mt-2">{stats.total_posts}</p>
                 </div>
                 <span class="text-4xl">📝</span>
             </div>
@@ -23,7 +23,7 @@
             <div class="flex justify-between items-start">
                 <div>
                     <p class="text-gray-600 text-sm">Visitantes</p>
-                    <p class="text-3xl font-bold mt-2">{{ stats.visitors|number_format }}</p>
+                    <p class="text-3xl font-bold mt-2">{stats.visitors|number_format}</p>
                 </div>
                 <span class="text-4xl">👥</span>
             </div>
@@ -34,7 +34,7 @@
             <div class="flex justify-between items-start">
                 <div>
                     <p class="text-gray-600 text-sm">Comentarios</p>
-                    <p class="text-3xl font-bold mt-2">{{ stats.comments }}</p>
+                    <p class="text-3xl font-bold mt-2">{stats.comments}</p>
                 </div>
                 <span class="text-4xl">💬</span>
             </div>
@@ -45,7 +45,7 @@
             <div class="flex justify-between items-start">
                 <div>
                     <p class="text-gray-600 text-sm">Usuarios</p>
-                    <p class="text-3xl font-bold mt-2">{{ stats.users }}</p>
+                    <p class="text-3xl font-bold mt-2">{stats.users}</p>
                 </div>
                 <span class="text-4xl">👤</span>
             </div>
@@ -74,17 +74,17 @@
     <div class="bg-white p-6 rounded-lg shadow">
         <h2 class="text-xl font-semibold mb-4">Actividad Reciente</h2>
         <div class="activity-list space-y-4">
-            {% for activity in recent_activity[:5] %}
+            #for activity in recent_activity[:5]
             <div class="activity-item flex items-start gap-4 p-4 hover:bg-gray-50 rounded">
-                <span class="text-2xl">{{ activity.icon }}</span>
+                <span class="text-2xl">{activity.icon}</span>
                 <div class="flex-1">
-                    <p class="font-medium">{{ activity.title }}</p>
-                    <p class="text-sm text-gray-600">{{ activity.description }}</p>
-                    <p class="text-xs text-gray-400 mt-1">{{ activity.timestamp|timeago }}</p>
+                    <p class="font-medium">{activity.title}</p>
+                    <p class="text-sm text-gray-600">{activity.description}</p>
+                    <p class="text-xs text-gray-400 mt-1">{activity.timestamp|timeago}</p>
                 </div>
             </div>
-            {% endfor %}
+            #end
         </div>
     </div>
 </div>
-{% endblock %}
+{# endblock #}

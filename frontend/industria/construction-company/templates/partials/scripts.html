@@ -1,0 +1,20 @@
+<script>
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menuToggle');
+const mobileDrawer = document.getElementById('mobileDrawer');
+const drawerOverlay = document.getElementById('drawerOverlay');
+
+if (menuToggle && mobileDrawer && drawerOverlay) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        mobileDrawer.classList.toggle('open');
+        drawerOverlay.classList.toggle('active');
+    });
+    
+    drawerOverlay.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mobileDrawer.classList.remove('open');
+        drawerOverlay.classList.remove('active');
+    });
+}
+</script>

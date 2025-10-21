@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{{ site.name }} - Admin{% endblock %}</title>
+    <title>{# block:title #}{site.name} - Admin{# endblock #}</title>
     
     <!-- KardoCSS -->
-    <link rel="stylesheet" href="{{ kardocss() }}">
-    <link rel="stylesheet" href="{{ static('css/admin.css') }}">
-    {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" href="{kardocss()}">
+    <link rel="stylesheet" href="{static('css/admin.css')}">
+    {# block:extra_css #}{# endblock #}
 </head>
 <body class="bg-gray-100">
     <div class="admin-wrapper flex h-screen">
         <!-- Sidebar -->
         <aside class="sidebar bg-gray-900 text-white w-64 flex-shrink-0">
             <div class="sidebar-header p-4 border-b border-gray-800">
-                <h1 class="text-xl font-bold">{{ site.name }}</h1>
+                <h1 class="text-xl font-bold">{site.name}</h1>
             </div>
             
             <nav class="sidebar-nav p-4">
                 <ul class="space-y-2">
-                    <li><a href="{{ url('admin.dashboard') }}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
+                    <li><a href="{url('admin.dashboard')}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
                         <span class="icon mr-3">📊</span> Dashboard
                     </a></li>
-                    <li><a href="{{ url('admin.posts') }}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
+                    <li><a href="{url('admin.posts')}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
                         <span class="icon mr-3">📝</span> Posts
                     </a></li>
-                    <li><a href="{{ url('admin.pages') }}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
+                    <li><a href="{url('admin.pages')}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
                         <span class="icon mr-3">📄</span> Páginas
                     </a></li>
-                    <li><a href="{{ url('admin.media') }}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
+                    <li><a href="{url('admin.media')}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
                         <span class="icon mr-3">🖼️</span> Medios
                     </a></li>
-                    <li><a href="{{ url('admin.users') }}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
+                    <li><a href="{url('admin.users')}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
                         <span class="icon mr-3">👥</span> Usuarios
                     </a></li>
-                    <li><a href="{{ url('admin.settings') }}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
+                    <li><a href="{url('admin.settings')}" class="nav-link flex items-center p-2 rounded hover:bg-gray-800">
                         <span class="icon mr-3">⚙️</span> Configuración
                     </a></li>
                 </ul>
@@ -51,11 +51,11 @@
                 </button>
                 
                 <div class="header-actions flex items-center gap-4">
-                    <a href="{{ url('home') }}" class="text-gray-600 hover:text-gray-900" target="_blank">Ver Sitio</a>
+                    <a href="{url('home')}" class="text-gray-600 hover:text-gray-900" target="_blank">Ver Sitio</a>
                     <div class="user-menu relative">
                         <button class="flex items-center gap-2">
-                            <img src="{{ current_user.avatar }}" alt="{{ current_user.name }}" class="w-8 h-8 rounded-full">
-                            <span>{{ current_user.name }}</span>
+                            <img src="{current_user.avatar}" alt="{current_user.name}" class="w-8 h-8 rounded-full">
+                            <span>{current_user.name}</span>
                         </button>
                     </div>
                 </div>
@@ -63,12 +63,12 @@
             
             <!-- Content Area -->
             <main class="content-area flex-1 overflow-y-auto p-6">
-                {% block content %}{% endblock %}
+                {# block:content #}{# endblock #}
             </main>
         </div>
     </div>
     
-    <script src="{{ static('js/admin.js') }}"></script>
-    {% block extra_js %}{% endblock %}
+    <script src="{static('js/admin.js')}"></script>
+    {# block:extra_js #}{# endblock #}
 </body>
 </html>

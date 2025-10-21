@@ -1,0 +1,36 @@
+<header class="sticky-header-mobile bg-white shadow-sm safe-top">
+    <nav class="container-responsive py-4">
+        <div class="flex items-center justify-between">
+            <div class="text-2xl font-bold text-primary">
+                {site_name}
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="hamburger show-mobile touch-target touch-feedback" id="menuToggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Desktop Menu -->
+            <div class="hide-mobile flex gap-6">
+                #for item in nav_items
+                <a href="{item.url}" class="text-gray-700 hover:text-primary transition-colors">{item.label}</a>
+                #end
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Drawer -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="mobileDrawer">
+    <div class="p-6 safe-top">
+        <div class="text-xl font-bold mb-6">Menú</div>
+        <nav class="flex flex-col gap-4">
+            #for item in nav_items
+            <a href="{item.url}" class="text-lg text-gray-700 hover:text-primary transition-colors py-2">{item.label}</a>
+            #end
+        </nav>
+    </div>
+</div>
